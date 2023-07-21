@@ -1,0 +1,11 @@
+:root {
+  background-color: #f3f6f9;
+  font-family: 'Kanit', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  font-size: 14px;
+}

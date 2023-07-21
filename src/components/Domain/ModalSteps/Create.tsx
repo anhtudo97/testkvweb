@@ -22,7 +22,8 @@ export interface ICreateModal {
 
 const CreateModal: React.FC<ICreateModal> = memo(({ handleChangeStep }) => {
   const [, setSearchParams] = useSearchParams();
-  const { onInputValue, haveError, error, value, onValidate } = useTextField();
+  const { onInputValue, haveError, error, value, onValidate } =
+    useTextField('');
 
   const helperText: string = useMemo(() => {
     if (!value) return '';

@@ -30,7 +30,7 @@ const ReviewModal: React.FC<IModifyModal> = memo(({ handleChangeStep }) => {
   const queryParams = Object.fromEntries(searchParams.entries());
 
   // The state for our timer
-  const timer = useCountdown(6);
+  const timer = useCountdown(600);
 
   const minutes = useMemo(() => Math.floor(timer / 60), [timer]);
   const seconds = useMemo(() => Math.floor(timer % 60), [timer]);

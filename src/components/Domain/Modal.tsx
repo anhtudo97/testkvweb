@@ -16,9 +16,9 @@ const Modal: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const domain = searchParams.get('step') as string;
-    if (domain) {
-      setStep(domain);
+    const step = searchParams.get('step') as EStepDomain;
+    if (step) {
+      setStep(step);
     }
   }, [searchParams]);
 

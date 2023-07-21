@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useCountdown = (seconds: number): number => {
   const [timeLeft, setTimeLeft] = useState(seconds);
@@ -7,7 +7,7 @@ export const useCountdown = (seconds: number): number => {
     let frameId: number;
     let startTime: number;
 
-    function frame(timestamp) {
+    function frame(timestamp: number) {
       if (!startTime) {
         startTime = timestamp;
       }

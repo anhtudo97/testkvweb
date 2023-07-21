@@ -26,7 +26,11 @@ export interface IModifyModal {
 
 const ModifyModal: React.FC<IModifyModal> = memo(({ handleChangeStep }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const domain = useMemo(() => searchParams.get('domain'), [searchParams]);
+  const queryParams = Object.fromEntries(searchParams.entries());
+  const domain = useMemo(
+    () => searchParams.get('domain') || undefined,
+    [searchParams],
+  );
 
   const onBackStep = () => {
     setSearchParams({
@@ -37,7 +41,7 @@ const ModifyModal: React.FC<IModifyModal> = memo(({ handleChangeStep }) => {
 
   const onChangeStep = () => {
     setSearchParams({
-      domain,
+      ...queryParams,
       step: EStepDomain.REVIEW,
     });
     handleChangeStep(EStepDomain.REVIEW);

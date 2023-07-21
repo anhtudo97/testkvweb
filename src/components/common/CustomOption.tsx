@@ -16,6 +16,12 @@ const CustomOption: React.FC<ICustomOption> = memo(({ options }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const onMenuItemClick = (callback: () => void) => {
+    callback();
+    handleClose();
+  };
+
   return (
     <div>
       <Button
@@ -42,7 +48,7 @@ const CustomOption: React.FC<ICustomOption> = memo(({ options }) => {
           return (
             <MenuItem
               key={`${item.name}_${index}`}
-              onClick={handleClose && item.onClick}
+              onClick={() => onMenuItemClick(item.onClick)}
             >
               {item.name}
             </MenuItem>
